@@ -1,0 +1,11 @@
+# Environment variables / secrets
+.env
+backend/.env
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Database files
+*.duckdb

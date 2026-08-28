@@ -1,0 +1,497 @@
+/* ==========================================================================
+   AI Data Analyst - Technical Dashboard / Data Grid Theme Stylesheet
+   Theme: Luminous Emerald, Cyber Teal & Radiant Amethyst
+   ========================================================================== */
+
+:root {
+  /* Signature Dark Obsidian-Emerald Theme Tokens */
+  --bg-app: #080d16;
+  --bg-sidebar: #0b121e;
+  --bg-header: #0b121e;
+  --bg-canvas: #080d16;
+  --bg-card: #0f1929;
+  --bg-card-hover: #162438;
+  --bg-card-subtle: #16243880;
+  --bg-glass: rgba(11, 18, 30, 0.88);
+
+  --border-app: #18273b;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: #233752;
+  --border-accent: rgba(16, 185, 129, 0.45);
+
+  --text-primary: #f0fdf4;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-heading: #ffffff;
+
+  --accent-emerald: #10b981;
+  --accent-teal: #14b8a6;
+  --accent-violet: #8b5cf6;
+  --accent-amethyst: #a855f7;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  --accent-cyan: #06b6d4;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.55), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 25px rgba(16, 185, 129, 0.2);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+}
+
+html.light {
+  /* Signature Light Porcelain-Mint Theme Tokens */
+  --bg-app: #f4f8f6;
+  --bg-sidebar: #0b121e; /* Deep Obsidian Contrast Sidebar */
+  --bg-header: #ffffff;
+  --bg-canvas: #f4f8f6;
+  --bg-card: #ffffff;
+  --bg-card-hover: #ecfdf5;
+  --bg-card-subtle: #f0fdf4;
+  --bg-glass: rgba(255, 255, 255, 0.95);
+
+  --border-app: #e2ece7;
+  --border-subtle: #e2ece7;
+  --border-strong: #c8d8d0;
+  --border-accent: rgba(16, 185, 129, 0.5);
+
+  --text-primary: #0f241d;
+  --text-secondary: #3b5249;
+  --text-muted: #6b8277;
+  --text-heading: #061a14;
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+  --shadow-glow: 0 0 22px rgba(16, 185, 129, 0.12);
+}
+
+/* Base Resets & Technical Typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Technical Dashboard Panels & Cards */
+.tech-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-app);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tech-card:hover {
+  border-color: var(--border-strong);
+}
+
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-app);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.glass-panel:hover {
+  border-color: var(--border-strong);
+}
+
+.tech-header {
+  background: var(--bg-header);
+  border-bottom: 1px solid var(--border-app);
+}
+
+/* Technical Data Grid Table Styling */
+.tech-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.75rem;
+}
+
+.tech-table th {
+  background: var(--bg-card-subtle);
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-app);
+}
+
+.tech-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-app);
+  color: var(--text-primary);
+}
+
+.tech-table tbody tr:hover {
+  background: var(--bg-card-hover);
+}
+
+/* Quality SVG Circle Gauge */
+.gauge-svg {
+  transform: rotate(-90deg);
+}
+
+.gauge-bg-circle {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 8;
+}
+
+html.light .gauge-bg-circle {
+  stroke: #e2e8f0;
+}
+
+.gauge-progress-circle {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.4s ease;
+}
+
+/* Interactive Dropzone Animation */
+.dropzone-dashed {
+  background-image: repeating-linear-gradient(0deg, var(--border-strong), var(--border-strong) 8px, transparent 8px, transparent 16px),
+                    repeating-linear-gradient(90deg, var(--border-strong), var(--border-strong) 8px, transparent 8px, transparent 16px),
+                    repeating-linear-gradient(180deg, var(--border-strong), var(--border-strong) 8px, transparent 8px, transparent 16px),
+                    repeating-linear-gradient(270deg, var(--border-strong), var(--border-strong) 8px, transparent 8px, transparent 16px);
+  background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+  background-repeat: no-repeat;
+  transition: all 0.25s ease;
+}
+
+.dropzone-dashed:hover {
+  background-image: repeating-linear-gradient(0deg, var(--accent-emerald), var(--accent-emerald) 8px, transparent 8px, transparent 16px),
+                    repeating-linear-gradient(90deg, var(--accent-emerald), var(--accent-emerald) 8px, transparent 8px, transparent 16px),
+                    repeating-linear-gradient(180deg, var(--accent-emerald), var(--accent-emerald) 8px, transparent 8px, transparent 16px),
+                    repeating-linear-gradient(270deg, var(--accent-emerald), var(--accent-emerald) 8px, transparent 8px, transparent 16px);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.45);
+}
+
+/* Chat Drawer Resizing Handle */
+.resize-handle-x {
+  cursor: ew-resize;
+  width: 6px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+  transition: background 0.15s ease;
+}
+
+.resize-handle-x:hover {
+  background: var(--accent-emerald);
+}
+
+/* Markdown Table Layout inside Chat */
+.chat-markdown-content table {
+  width: 100%;
+  margin: 0.5rem 0;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.chat-markdown-content th,
+.chat-markdown-content td {
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--border-app);
+}
+
+/* ==========================================================================
+   Chat Bot Animations & UI Styling (Instant View Switching)
+   ========================================================================== */
+
+/* Chat Bot Avatar Styling & Glow */
+.bot-avatar-pulse {
+  position: relative;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+  animation: botPulse 3s ease-in-out infinite;
+}
+
+@keyframes botPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3), 0 0 20px rgba(20, 184, 166, 0.15);
+    border-color: rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.6), 0 0 35px rgba(20, 184, 166, 0.35);
+    border-color: rgba(52, 211, 153, 0.8);
+  }
+}
+
+/* Floating AI Bot Launcher Button */
+.floating-bot-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.floating-bot-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.floating-bot-btn:active {
+  transform: translateY(0) scale(0.96);
+}
+
+/* Interactive Card Hover Transitions */
+.interactive-card {
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.22s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+html.dark .interactive-card:hover {
+  box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.5), 0 8px 12px -6px rgba(16, 185, 129, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.5deg); }
+}
+
+@keyframes floatSlowReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(-0.5deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(16, 185, 129, 0.2), 0 0 30px rgba(20, 184, 166, 0.1); }
+  50% { box-shadow: 0 0 28px rgba(16, 185, 129, 0.45), 0 0 55px rgba(20, 184, 166, 0.3); }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes chartDash {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatSlowReverse 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+.animate-gradient-flow {
+  background-size: 200% 200%;
+  animation: gradientFlow 6s ease infinite;
+}
+
+/* Map Interactive Zoom & Pan State */
+.map-canvas-container {
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.map-canvas-container.is-panning {
+  cursor: grabbing !important;
+}
+
+.map-smooth-transform {
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.map-smooth-transform.is-dragging {
+  transition: none !important;
+}
+
+/* Glowing Badges & Gradients */
+.glass-panel-glow {
+  background: var(--bg-card);
+  border: 1px solid var(--border-app);
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-glow:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-glow), 0 8px 30px -4px rgba(0, 0, 0, 0.45);
+}
+
+.glow-pill {
+  position: relative;
+}
+.glow-pill::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.6), rgba(20, 184, 166, 0.2), rgba(139, 92, 246, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Pair Plot Matrix Grid Styling */
+.pair-plot-grid {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+
+.pair-cell {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 6px;
+  position: relative;
+  min-height: 140px;
+  transition: all 0.2s ease;
+}
+
+.pair-cell:hover {
+  border-color: var(--accent-emerald);
+  transform: translateY(-1px);
+  z-index: 5;
+}
+
+.pair-cell-diag {
+  background: rgba(16, 185, 129, 0.04);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+/* Joint Plot Coordinate Layout */
+.joint-plot-layout {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  grid-template-rows: 100px 1fr;
+  gap: 10px;
+  width: 100%;
+  min-height: 480px;
+}
+
+.joint-top-marginal {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.joint-right-marginal {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.joint-center-scatter {
+  grid-column: 1;
+  grid-row: 2;
+  min-height: 380px;
+}
+
+.joint-corner-stats {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Hero Background Grid Pattern */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+html.light .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+/* Print/PDF Export Formatting */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print, aside, header, #chat-drawer {
+    display: none !important;
+  }
+}
+
