@@ -23,3 +23,4 @@ pandas
 requests
 pinecone
 faster-whisper
+duckdb
