@@ -19,6 +19,7 @@ groq
 GitPython
 fastembed
 httpx
+pandas
 requests
 pinecone
 faster-whisper
